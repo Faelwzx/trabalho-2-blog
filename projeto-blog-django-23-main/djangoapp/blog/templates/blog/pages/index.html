@@ -1,0 +1,45 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <div class="ceara-banner center">
+    {% load static %}
+    <img
+      class="ceara-logo"
+      src="{% static 'blog/img/ceara-logo.png' %}"
+      alt="Ceará Sporting Club"
+    >
+  </div>
+
+
+  <main class="main-content section-wrapper">
+    <div class="section-content-wide">
+      <div class="section-gap">
+
+        <div class="home-highlight center pb-base">
+          <h1 class="home-title">Bem-vindo ao Vozão News</h1>
+          <p class="home-subtitle">
+            O blog dedicado ao Ceará Sporting Club.
+          </p>
+        </div>
+
+        {% if posts %}
+          <div class="card-grid">
+            {% for post in posts %}
+              {% include 'blog/partials/_post-card.html' with i=forloop.counter0 %}
+            {% endfor %}
+          </div>
+        {% else %}
+          <div class="not-found center">
+            <h1>Nada encontrado 😔</h1>
+            <p>
+              Não encontrei nada nesse link, por favor, clique em outro
+              link do nosso blog ou vá para a
+              <a href="{% url 'blog:index' %}">Home</a>.
+            </p>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </main>
+{% endblock content %}
