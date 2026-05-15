@@ -1,1 +1,0 @@
-Projeto adaptado para o tema do Ceará Sporting Club.
